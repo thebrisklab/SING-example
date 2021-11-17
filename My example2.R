@@ -22,10 +22,11 @@ out_mcca2 = plotNetwork(SymCCA[,2], title='mCCA+jICA',qmin=0.005, qmax=0.995, pa
 ##### Stop at here
 
 par(mfrow = c(1,4))
-image(matrix(Sytrue[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(Sytrue[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(Sy_rhoLarge[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(Sy_rhoLarge[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+lgrid=50
+image(vec2net(Sytrue[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(vec2net(Sytrue[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(vec2net(Sy_rhoLarge[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(vec2net(Sy_rhoLarge[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 
 
 
