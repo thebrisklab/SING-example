@@ -1301,7 +1301,7 @@ computeRho <- function(JBvalX, JBvalY, Mxall, Myall, rjoint){
 #IGAY: adjust function so that the path is not hard-coded
 plotNetwork = function(component,title='',qmin=0.005, qmax=0.995, path = '~/Dropbox/JINGCA/Data/community_affiliation_mmpplus.csv',make.diag=NA) {
   # component:
-  # vectorized network of lenght choose(n,2)
+  # vectorized network of length choose(n,2)
   require(ggplot2)
   require(grid)
   require(scales)

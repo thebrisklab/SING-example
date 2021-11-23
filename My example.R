@@ -10,26 +10,25 @@ data <- generateData_v3(nsubject = 48, snr = c(1, 1), vars = c(0.005, 0.005))
 save(data,file='data_example.Rda')
 # Components for X
 ###simData
-simData=newSimFMRI(nImages = 1)
+# simData=newSimFMRI()
 
-par(mfrow = c(1,4))
-image(matrix(simData$S[,1],33))
-image(matrix(simData$S[,2],33))
-image(matrix(simData$S[,3],33))
-image(matrix(simData$S[,4],33))
+#par(mfrow = c(1,4))
+#image(matrix(simData$S[,1],33))
+#image(matrix(simData$S[,2],33))
+#image(matrix(simData$S[,3],33))
+#image(matrix(simData$S[,4],33))
 
 lgrid = 33
-
-
-par(mfrow = c(1,3))
-image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+par(mfrow = c(2,4))
 image(matrix(data$sjX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(matrix(data$sjX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(matrix(data$siX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
 
 
 # Components for Y
 
-par(mfrow = c(1,4))
+
 image(vec2net(data$sjY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(vec2net(data$sjY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(vec2net(data$siY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
@@ -548,7 +547,7 @@ SxjointICA = out_jointICA$S[1:pX, ]
 SyjointICA = out_jointICA$S[(pX+1):(pX + pY), ]
 Sx_rho0 = t(matchMxMy$Ux[1:2, ] %*% xDataA)
 Sy_rho0 = t(matchMxMy$Uy[1:2, ] %*% yDataA)
-Sx_rhoSmall = t(out_indiv_small$Ux[1:2, ] %*% xDataA)
+Sx_rhoSmall = t(out_indiv_small$Ux[1:2, ] %*% xDataA)  # I have make change at here to change the sequence of graph
 Sy_rhoSmall = t(out_indiv_small$Uy[1:2, ] %*% yDataA)
 Sx_rhoLarge = t(out_indiv_large$Ux[1:2, ] %*% xDataA)
 Sy_rhoLarge = t(out_indiv_large$Uy[1:2, ] %*% yDataA)

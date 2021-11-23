@@ -127,7 +127,7 @@ generateData_v3 <- function(nsubject = 48, snr = c(0.2, 0.2), vars = c(0.01,0.01
   djX = mj%*%sjX
   
   # Create individual structure for X
-  siX = t(simS[,c(1,4)])
+  siX = t(simS[,3:4])
   n4 = round(nsubject/4)
   miX1 = c(rep(-1,n4),rep(1,n4),rep(-1,n4),rep(1,nsubject-3*n4))+rnorm(nsubject) # X independent subject score 
   miX2 = c(rep(1,n4),rep(-1,n4),rep(1,n4),rep(-1,nsubject-3*n4))+rnorm(nsubject)
@@ -176,7 +176,7 @@ generateData_v3 <- function(nsubject = 48, snr = c(0.2, 0.2), vars = c(0.01,0.01
   var.noise = vars[2]
   
   # Create joint structure for Y
-  sjY = cbind(temp1[lower.tri(temp1)],temp2[lower.tri(temp2)])
+  sjY = cbind(temp3[lower.tri(temp3)],temp4[lower.tri(temp4)])
   inactive = sum(sjY==0)
   sjY[sjY==0] = rnorm(inactive, mean = 0, sd = sqrt(var.noise))
   sjY = t(scale(sjY))
@@ -185,7 +185,7 @@ generateData_v3 <- function(nsubject = 48, snr = c(0.2, 0.2), vars = c(0.01,0.01
   py = ncol(sjY)
   
   # Create individual structure for Y
-  siY = cbind(temp3[lower.tri(temp3)],temp4[lower.tri(temp4)])
+  siY = cbind(temp1[lower.tri(temp1)],temp2[lower.tri(temp2)])
   inactive = sum(siY==0)
   siY[siY==0] = rnorm(inactive, mean = 0, sd = sqrt(var.noise))
   siY = t(scale(siY))
