@@ -6,9 +6,18 @@ source("mCCAjointICA.R")
 source('generate_data.R')
 # Generate data, will return both components and mixing matrix
 set.seed(0573452)
-data <- generateData_v2(nsubject = 48, snr = c(1, 1), vars = c(0.005, 0.005))
+data <- generateData_v3(nsubject = 48, snr = c(1, 1), vars = c(0.005, 0.005))
 save(data,file='data_example.Rda')
 # Components for X
+###simData
+simData=newSimFMRI(nImages = 1)
+
+par(mfrow = c(1,4))
+image(matrix(simData$S[,1],33))
+image(matrix(simData$S[,2],33))
+image(matrix(simData$S[,3],33))
+image(matrix(simData$S[,4],33))
+
 lgrid = 33
 
 

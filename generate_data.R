@@ -1,11 +1,4 @@
-###simData
-simData=newSimFMRI(nImages = 1)
 
-par(mfrow = c(1,4))
-image(matrix(simData$S[,1],33))
-image(matrix(simData$S[,2],33))
-image(matrix(simData$S[,3],33))
-image(matrix(simData$S[,4],33))
 
 ################################################
 newSimFMRI = function(snr = 1, noisyICA=FALSE, nTR=50, nImages=1, phi=0.5, dim.data=c(33,33), var.inactive=0.0001) {
