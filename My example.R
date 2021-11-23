@@ -10,7 +10,7 @@ data <- generateData_v3(nsubject = 48, snr = c(1, 1), vars = c(0.005, 0.005))
 save(data,file='data_example.Rda')
 # Components for X
 ###simData
-simData=newSimFMRI(nImages = 1)
+simData=newSimFMRI()
 
 par(mfrow = c(1,4))
 image(matrix(simData$S[,1],33))
@@ -21,10 +21,11 @@ image(matrix(simData$S[,4],33))
 lgrid = 33
 
 
-par(mfrow = c(1,3))
-image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+par(mfrow = c(1,4))
 image(matrix(data$sjX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(matrix(data$sjX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(matrix(data$siX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
 
 
 # Components for Y
