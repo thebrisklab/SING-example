@@ -1,3 +1,4 @@
+source("jngcaFunctions.R")
 ### Outcome
 
 load("EstimatedComponents_example.Rda")
@@ -21,12 +22,16 @@ out_mcca2 = plotNetwork(SymCCA[,2], title='mCCA+jICA',qmin=0.005, qmax=0.995, pa
 #### there are errors in this step
 ##### Stop at here
 
-par(mfrow = c(1,4))
+par(mfrow = c(2,4))
 lgrid=50
-image(vec2net(Sytrue[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(Sytrue[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(Sy_rhoLarge[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(Sy_rhoLarge[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n")
+image(vec2net(Sytrue[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n") #Truth
+image(vec2net(Sytrue[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n") #Truth
+image(vec2net(Sy_rhoLarge[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n") # large rho
+image(vec2net(Sy_rhoLarge[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n") # large rho
+image(vec2net(SyjointICA[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n") # Joint ICA
+image(vec2net(SyjointICA[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n") #Joint ICA
+image(vec2net(SymCCA[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n") #mCCA+jICA
+image(vec2net(SymCCA[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n") #mCCA+jICA
 
 
 

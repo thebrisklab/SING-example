@@ -3,6 +3,7 @@
 # Source all the functions
 source("jngcaFunctions.R")
 source("mCCAjointICA.R")
+source('mydata.R')
 # Generate data, will return both components and mixing matrix
 set.seed(0573452)
 data <- generateData_v2(nsubject = 48, snr = c(1, 1), vars = c(0.005, 0.005))
