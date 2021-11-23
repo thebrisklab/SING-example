@@ -1,5 +1,6 @@
 ###simData
 simData=newSimFMRI(nImages = 1)
+
 par(mfrow = c(1,4))
 image(matrix(simData$S[,1],33))
 image(matrix(simData$S[,2],33))
