@@ -568,10 +568,12 @@ Sx_rhoSmall = signchange(Sx_rhoSmall)
 Sy_rhoSmall = signchange(Sy_rhoSmall)
 Sx_rhoLarge  = signchange(Sx_rhoLarge)
 Sy_rhoLarge  = signchange(Sy_rhoLarge)
+Sx_rho0  = signchange(Sx_rho0)
+Sy_rho0  = signchange(Sy_rho0)
 SxmCCA = signchange(SxmCCA)
 SymCCA = signchange(SymCCA)
 
 # Save the components
-save(Sxtrue, Sytrue, SxjointICA, SyjointICA, Sx_rhoSmall, Sy_rhoSmall, Sx_rhoLarge, Sy_rhoLarge, SxmCCA, SymCCA, file = "EstimatedComponents_example.Rda")
+save(Sxtrue, Sytrue, SxjointICA, SyjointICA, Sx_rho0, Sy_rho0, Sx_rhoSmall, Sy_rhoSmall, Sx_rhoLarge, Sy_rhoLarge, SxmCCA, SymCCA,file = "EstimatedComponents_example.Rda")
 
 
