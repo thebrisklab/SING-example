@@ -34,11 +34,13 @@ image(matrix(data$siX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yax
 
 # Components for Y
 
-
 image(vec2net(data$sjY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(vec2net(data$sjY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(vec2net(data$siY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
 image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
+
+
+
 
 # Use SING to conmpute
 # Center X and Y
@@ -568,10 +570,23 @@ Sx_rhoSmall = signchange(Sx_rhoSmall)
 Sy_rhoSmall = signchange(Sy_rhoSmall)
 Sx_rhoLarge  = signchange(Sx_rhoLarge)
 Sy_rhoLarge  = signchange(Sy_rhoLarge)
+Sx_rho0  = signchange(Sx_rho0)
+Sy_rho0  = signchange(Sy_rho0)
 SxmCCA = signchange(SxmCCA)
 SymCCA = signchange(SymCCA)
 
 # Save the components
-save(Sxtrue, Sytrue, SxjointICA, SyjointICA, Sx_rhoSmall, Sy_rhoSmall, Sx_rhoLarge, Sy_rhoLarge, SxmCCA, SymCCA, file = "EstimatedComponents_example.Rda")
+save(Sxtrue, Sytrue, SxjointICA, SyjointICA, Sx_rho0, Sy_rho0, Sx_rhoSmall, Sy_rhoSmall, Sx_rhoLarge, Sy_rhoLarge, SxmCCA, SymCCA,file = "EstimatedComponents_example.Rda")
+
+## joint subject score
+trueMj <- data.frame(mj1=data$mj[,1],mj2=data$mj[,2],number=1:48)
+ICAMj <- data.frame(mj1=out_jointICA$Mjoint[1,],mj2=out_jointICA$Mjoint[2,],number=1:48)
+SINGMj <- data.frame(mj1=newM[,1],mj2=newM[,2],number=1:48) # averaged rho
+
+save(trueMj=trueMj,ICAMj=ICAMj,SINGMj=SINGMj,file = "Estimated joint subject score_example.Rda")
+
+
+
+
 
 
