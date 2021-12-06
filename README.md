@@ -1,5 +1,6 @@
 ---
 title: "SING tutorial"
+author: Liangkang Wang
 output: github_document
 ---
 
@@ -7,14 +8,14 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Introduction
+## Introduction
 
 SING method is used in extracting joint non-gaussian components from different datasets when wiping off gaussian noise. This is a tutorial example supporting the paper **Simultaneous Non-Gaussian Component Analysis (SING) for Data Integration in Neuroimaging Benjamin Risk, Irina Gaynanova** https://arxiv.org/abs/2005.00597v1
 
 The function codes are saved in `jngcaFunctions.R` and `generate_data.R`.
 The data processing is saved in `My example.R` while the figures of outcome are saved in My example2.R`.
 
-###Generate data
+### Generate data
 
 
 
