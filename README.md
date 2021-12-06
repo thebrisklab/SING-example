@@ -1,8 +1,8 @@
----
-title: "SING tutorial"
+
+# SING tutorial
 author: Liangkang Wang
-output: github_document
----
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
