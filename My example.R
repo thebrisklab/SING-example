@@ -13,7 +13,7 @@ save(data,file='data_example.Rda')
 
 # simData=newSimFMRI()
 
-simData=newSimFMRI()
+#simData=newSimFMRI()
 
 
 #par(mfrow = c(1,4))
@@ -23,23 +23,18 @@ simData=newSimFMRI()
 #image(matrix(simData$S[,4],33))
 
 lgrid = 33
-
 par(mfrow = c(2,4))
-
-image(matrix(data$sjX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(data$sjX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(matrix(data$siX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n")
-
+# Components for X
+image(matrix(data$sjX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="X joint component1")
+image(matrix(data$sjX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="X joint component2")
+image(matrix(data$siX[1,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="X independent component2")
+image(matrix(data$siX[2,], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="X independent component2")
 
 # Components for Y
-
-image(vec2net(data$sjY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(data$sjY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(data$siY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n")
-
-
+image(vec2net(data$sjY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="Y joint component1")
+image(vec2net(data$sjY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="Y joint component2")
+image(vec2net(data$siY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="Y independent component1")
+image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="Y independent component2")
 
 
 # Use SING to conmpute
