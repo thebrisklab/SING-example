@@ -44,4 +44,5 @@ image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main=
 
 ### Data process
 
-You can also embed plots, for example:
+The data process code can be found in the two code file mentioned
+before.
