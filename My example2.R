@@ -21,8 +21,6 @@ image(matrix(Sx_rhoLarge[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", 
 image(matrix(Sx_rhoLarge[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="rho=Large")
 image(matrix(Sx_rho0[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="rho=0")
 image(matrix(Sx_rho0[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="rho=0")
-<<<<<<< HEAD
-=======
 
 
 lgrid = 33
@@ -35,7 +33,7 @@ image(matrix(SxjointICA[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", y
 image(matrix(SxjointICA[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="jointICA")
 image(matrix(SxmCCA[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="mCCA")
 image(matrix(SxmCCA[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="mCCA")
->>>>>>> be4134eb76154c97f3d06413453218406fe239d2
+
 
 
 lgrid = 33

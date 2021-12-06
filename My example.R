@@ -578,6 +578,7 @@ SymCCA = signchange(SymCCA)
 # Save the components
 save(Sxtrue, Sytrue, SxjointICA, SyjointICA, Sx_rho0, Sy_rho0, Sx_rhoSmall, Sy_rhoSmall, Sx_rhoLarge, Sy_rhoLarge, SxmCCA, SymCCA,file = "EstimatedComponents_example.Rda")
 
+
 ## joint subject score
 trueMj <- data.frame(mj1=data$mj[,1],mj2=data$mj[,2],number=1:48)
 ICAMj <- data.frame(mj1=out_jointICA$Mjoint[1,],mj2=out_jointICA$Mjoint[2,],number=1:48)
