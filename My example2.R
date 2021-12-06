@@ -76,46 +76,50 @@ image(vec2net(SymCCA[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="m
 
 ###Figure for the joint subject score
 
+
+library(tidyverse)
+library(ggpubr)
 #True mj
-ggplot(data = trueMj)+
+
+t1 <- ggplot(data = trueMj)+
   geom_point(mapping = aes(y=mj1,x=number))+
   ggtitle("TrueMj,Comp1")+
   theme_bw()+
   theme(panel.grid = element_blank())
 
-ggplot(data = trueMj)+
+t2 <- ggplot(data = trueMj)+
   geom_point(mapping = aes(y=mj2,x=number))+
   ggtitle("TrueMj,Comp2")+
   theme_bw()+
   theme(panel.grid = element_blank())
 
 #SING mj
-ggplot(data = SINGMj)+
+S1 <- ggplot(data = SINGMj)+
   geom_point(mapping = aes(y=mj1,x=number))+
   ggtitle("SINGMj,Comp1")+
   theme_bw()+
   theme(panel.grid = element_blank())
 
-ggplot(data = SINGMj)+
+S2 <- ggplot(data = SINGMj)+
   geom_point(mapping = aes(y=mj2,x=number))+
   ggtitle("SINGmj,Comp2")+
   theme_bw()+
   theme(panel.grid = element_blank())
 
 #ICA mj
-ggplot(data = ICAMj)+
-  geom_point(mapping = aes(y=mj1,x=number))+
+I1 <- ggplot(data = ICAMj)+
+  geom_point(mapping = aes(y=mj2,x=number))+
   ggtitle("Joint Score,Comp1")+
   theme_bw()+
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank())  #due to the permutation test, the sequence at here is inverse, which can be seen in the previous figure of joint components
 
-ggplot(data = ICAMj)+
-  geom_point(mapping = aes(y=mj2,x=number))+
+I2 <- ggplot(data = ICAMj)+
+  geom_point(mapping = aes(y=mj1,x=number))+
   ggtitle("Joint Score,Comp2")+
   theme_bw()+
   theme(panel.grid = element_blank())
 
-
+ggarrange(t1,S1,I1,t2,S2,I2,ncol = 3,nrow = 2)
 
 
 
