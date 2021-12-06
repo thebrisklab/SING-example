@@ -127,7 +127,9 @@ generateData_v3 <- function(nsubject = 48, snr = c(0.2, 0.2), vars = c(0.01,0.01
   djX = mj%*%sjX
   
   # Create individual structure for X
+
   siX = t(simS[,3:4])
+
   n4 = round(nsubject/4)
   miX1 = c(rep(-1,n4),rep(1,n4),rep(-1,n4),rep(1,nsubject-3*n4))+rnorm(nsubject) # X independent subject score 
   miX2 = c(rep(1,n4),rep(-1,n4),rep(1,n4),rep(-1,nsubject-3*n4))+rnorm(nsubject)
