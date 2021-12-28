@@ -5,15 +5,15 @@ Liangkang Wang
 
 ## Introduction
 
-SING method is used in extracting joint non-gaussian components from
-different datasets when wiping off gaussian noise. This is a tutorial
+SING method is used to extract joint and individual non-gaussian components from
+two datasets. This is a tutorial
 example supporting the paper **Simultaneous Non-Gaussian Component
 Analysis (SING) for Data Integration in Neuroimaging Benjamin Risk,
 Irina Gaynanova** <https://arxiv.org/abs/2005.00597v1>
 
-The function codes are saved in `jngcaFunctions.R` and
-`generate_data.R`. The data processing is saved in `My example.R` while
-the figures of outcome are saved in My example2.R\`.
+The function codes are located in `jngcaFunctions.R` and
+`generate_data.R`. The data analysis is performed in `My example.R` and
+the figures are created in My example2.R\`.
 
 ## Example Code
 
@@ -44,8 +44,7 @@ image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main=
 
 ### Data process
 
-The data process code can be found in the two code file mentioned
-before.
+The data processing and analysis code can be found in `MyExample.R` and `MyExample2.R`.
 
 ### Outcome
 
