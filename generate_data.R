@@ -107,6 +107,26 @@ newSimFMRI = function(snr = 1, noisyICA=FALSE, nTR=50, nImages=1, phi=0.5, dim.d
 # which makes it more realistic. (The original scenario was a more pathological example where logis fail
 # but JB succeeds...)
 # IGAY: added centering to mj so already column-centered approximately
+
+#' Simulate data from the SING model.
+#' 
+#' \code{generateData_v3} Create two datasets. The first dataset correspond to 2D images, roughly similar to a brain activation map, the second dataset corresponds to symmetric matrices, roughly similar to brain networks.
+#' 
+#' @param nsubject number of subjects in the simulated dataset. 
+#' @param snr vector of length two corresponding to the ratio of non-Gaussian (both joint and individual) to Gaussian components in each dataset.
+#' @param vars the background variance of non-active voxels or edges within a non-Gaussian component. Setting this equal to zero results in true sparsity in a non-Gaussian components. 
+#' @return a list with matrices 
+#' ## dX: the first dataset, nsubject x nPixels, here nPixels=33*33=1089
+#' ## dY: the second dataset, nsubject x nEdges, here there are 100 nodes, and the vectorized lower triangular of the 100x100 matrix is 100*99/2.
+#' ## mj: the true subject scores, nsubject x rJ, here, rJ=2 (two true components
+#' ## sjX: true non-Gaussian joint components (loadings) for the first dataset
+#' ## sjY: true non-Gaussian joint components (loadings) for the second dataset
+#' ## siX: true non-Gaussian individual components (loadings) for the first dataset
+#' ## siY: true non-Gaussian individual components (loadings) for the second dataset
+#' ## snr: snr specified in the input
+#' ## R2x: proportion of joint signal variance/(total variance) in dataset X
+#' ## R2y: proportion of joint signal variance/(total variance) in dataset Y
+#' @export
 generateData_v3 <- function(nsubject = 48, snr = c(0.2, 0.2), vars = c(0.01,0.01)){
   # Generate mixing matrices
   n1 = round(nsubject/2)
