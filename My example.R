@@ -85,6 +85,7 @@ My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))
 # Get joint components out
 alpha = 0.05
 nperms = 10 #1000
+# Match mixing matrices to get correct ordering, then can get starting points
 matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))
 permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)
 joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1
@@ -96,14 +97,13 @@ joint_rank # selects rank 2
 # JB on X
 estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
 Uxfull <- estX_JB$Ws
-
-# Match mixing matrices to get correct ordering, then can get starting points
 Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
+
+
 
 # JB on Y
 estY_JB = mlcaFP(xData = t(data$dY), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
 Uyfull <- estY_JB$Ws
-
 My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))
 
 # Get joint components out
