@@ -92,6 +92,8 @@ joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1
 pval_joint = permuteJoint$pvalues
 joint_rank # selects rank 2
 
+
+
 ## Apply separate JB 
 #############################################################
 # JB on X
@@ -99,12 +101,12 @@ estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.
 Uxfull <- estX_JB$Ws
 Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
 
-
-
 # JB on Y
 estY_JB = mlcaFP(xData = t(data$dY), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
 Uyfull <- estY_JB$Ws
 My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))
+
+
 
 # Get joint components out
 matchMxMy = greedymatch(t(Mx_JB), t(My_JB), Ux = t(Uxfull), Uy = t(Uyfull))
