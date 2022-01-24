@@ -165,8 +165,9 @@ xDataA = whitenerXA %*% dXcentered
 # Scale rowwise
 est.sigmaYA = tcrossprod(dYcentered)/(pY-1)  ## since already centered, can just take tcrossprod
 whitenerYA = est.sigmaYA%^%(-0.5)
-yDataA = whitenerYA %*% dYcentered
 invLy = est.sigmaYA%^%(0.5)
+yDataA = whitenerYA %*% dYcentered
+
 
 # Starting points for the algorithm are Us
 ##########################################
