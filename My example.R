@@ -144,7 +144,8 @@ alpha = 0.05
 nperms = 10
 matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))
 permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)
-joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1
+joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1 # find the number of pvalues < 0.05
+### the same with the code max(which(permuteJoint$pvalues < 0.05))
 pval_joint = permuteJoint$pvalues
 joint_rank # selects rank 2
 
@@ -154,7 +155,8 @@ joint_rank # selects rank 2
 
 # For X
 # Scale rowwise
-est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## since already centered, can just take tcrossprod
+est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## dXcentered %*% t(dXcentered), which is the covariance matrix with n x n.
+#since already centered, can just take tcrossprod
 whitenerXA = est.sigmaXA%^%(-0.5)
 invLx = est.sigmaXA%^%(0.5)
 xDataA = whitenerXA %*% dXcentered
