@@ -145,7 +145,7 @@ nperms = 10
 matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))
 permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)
 joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1 # find the number of pvalues < 0.05
-### the same with the code max(which(permuteJoint$pvalues < 0.05))
+### the same with the code max(which(permuteJoint$pvalues <= 0.05))
 pval_joint = permuteJoint$pvalues
 joint_rank # selects rank 2
 
