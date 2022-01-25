@@ -142,8 +142,8 @@ save(output_sepJB, file = "sepJB_example.Rda")
 # Rank estimation via permutation
 alpha = 0.05
 nperms = 10
-matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))
-permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)
+matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))  # Match subject score
+permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)  #permutation test
 joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1 # find the number of pvalues < 0.05
 ### the same with the code max(which(permuteJoint$pvalues <= 0.05))
 pval_joint = permuteJoint$pvalues
@@ -156,17 +156,17 @@ joint_rank # selects rank 2
 # For X
 # Scale rowwise
 est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## dXcentered %*% t(dXcentered), which is the covariance matrix with n x n.
-#since already centered, can just take tcrossprod
-whitenerXA = est.sigmaXA%^%(-0.5)
+whitenerXA = est.sigmaXA%^%(-0.5) 
+xDataA = whitenerXA %*% dXcentered  # ZCA Whitening
 invLx = est.sigmaXA%^%(0.5)
-xDataA = whitenerXA %*% dXcentered
 
 # For Y
 # Scale rowwise
 est.sigmaYA = tcrossprod(dYcentered)/(pY-1)  ## since already centered, can just take tcrossprod
 whitenerYA = est.sigmaYA%^%(-0.5)
+yDataA = whitenerYA %*% dYcentered   # ZCA Whitening
 invLy = est.sigmaYA%^%(0.5)
-yDataA = whitenerYA %*% dYcentered
+
 
 
 # Starting points for the algorithm are Us
