@@ -98,7 +98,7 @@ joint_rank # selects rank 2
 #############################################################
 # JB on X
 estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
-Uxfull <- estX_JB$Ws  # Question: I don't know what it is.
+Uxfull <- estX_JB$Ws  # Question1: I don't know what it is.
 Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
 
 # JB on Y
