@@ -98,7 +98,7 @@ joint_rank # selects rank 2
 #############################################################
 # JB on X
 estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
-Uxfull <- estX_JB$Ws
+Uxfull <- estX_JB$Ws  # Question: I don't know what it is.
 Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
 
 # JB on Y
@@ -107,9 +107,8 @@ Uyfull <- estY_JB$Ws
 My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))
 
 
-
 # Get joint components out
-matchMxMy = greedymatch(t(Mx_JB), t(My_JB), Ux = t(Uxfull), Uy = t(Uyfull))
+matchMxMy = greedymatch(t(Mx_JB), t(My_JB), Ux = t(Uxfull), Uy = t(Uyfull)) 
 
 cor(matchMxMy$Mx[, 1:2], matchMxMy$My[, 1:2]) # 0.95 and 0.93
 
@@ -157,8 +156,8 @@ joint_rank # selects rank 2
 # Scale rowwise
 est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## dXcentered %*% t(dXcentered), which is the covariance matrix with n x n.
 whitenerXA = est.sigmaXA%^%(-0.5) 
-xDataA = whitenerXA %*% dXcentered  # ZCA Whitening
-invLx = est.sigmaXA%^%(0.5)
+xDataA = whitenerXA %*% dXcentered  # ZCA Whitening, matrix with n x px.
+invLx = est.sigmaXA%^%(0.5) # Don't know what it is.
 
 # For Y
 # Scale rowwise
