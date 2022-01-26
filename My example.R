@@ -80,7 +80,7 @@ Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
 
 estY_JB = mlcaFP(xData = t(data$dY), n.comp = 48, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
 
-My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))
+My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))  
 
 # Get joint components out
 alpha = 0.05
@@ -98,7 +98,7 @@ joint_rank # selects rank 2
 #############################################################
 # JB on X
 estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
-Uxfull <- estX_JB$Ws  # Question1: I don't know what it is.
+Uxfull <- estX_JB$Ws  # Ax = Ux %*% Lx, where Lx is the whitened matrix from covariance matrix of dX.
 Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
 
 # JB on Y
