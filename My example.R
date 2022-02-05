@@ -131,15 +131,15 @@ joint_rank # selects rank 2
 # For X
 # Scale rowwise
 est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## dXcentered %*% t(dXcentered), which is the covariance matrix with n x n.
-whitenerXA = est.sigmaXA%^%(-0.5)   # ZCA Whitening,
-xDataA = whitenerXA %*% dXcentered   # Lx %*% dX.matrix with n x px. 
+whitenerXA = est.sigmaXA%^%(-0.5)   # ZCA Whitening, Lx. 
+xDataA = whitenerXA %*% dXcentered   # Xw = Lx %*% Xc.matrix with n x px. 
 invLx = est.sigmaXA%^%(0.5) # Inverse matrix of Lx, which is the whitenerXA aforemetioned. 
 
 # For Y
 # Scale rowwise
 est.sigmaYA = tcrossprod(dYcentered)/(pY-1)  ## since already centered, can just take tcrossprod
-whitenerYA = est.sigmaYA%^%(-0.5)
-yDataA = whitenerYA %*% dYcentered   # ZCA Whitening
+whitenerYA = est.sigmaYA%^%(-0.5)   # ZCA Whitening
+yDataA = whitenerYA %*% dYcentered   
 invLy = est.sigmaYA%^%(0.5)
 
 
