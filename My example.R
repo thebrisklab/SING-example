@@ -70,30 +70,6 @@ save(out_jointICA, file = "jointICA_example.Rda")
 
 
 
-#####################################################
-# Joint rank estimation based on saturated models
-#####################################################
-# this section 
-estX_JB = mlcaFP(xData = t(data$dX), n.comp = 48, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
-
-Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
-
-estY_JB = mlcaFP(xData = t(data$dY), n.comp = 48, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
-
-My_JB = est.M.ols(sData = estY_JB$S, xData = t(data$dY))  
-
-# Get joint components out
-alpha = 0.05
-nperms = 10 #1000
-# Match mixing matrices to get correct ordering, then can get starting points
-matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))
-permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)
-joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1
-pval_joint = permuteJoint$pvalues
-joint_rank # selects rank 2
-
-
-
 ## Apply separate JB 
 #############################################################
 # JB on X
@@ -155,9 +131,9 @@ joint_rank # selects rank 2
 # For X
 # Scale rowwise
 est.sigmaXA = tcrossprod(dXcentered)/(pX-1)  ## dXcentered %*% t(dXcentered), which is the covariance matrix with n x n.
-whitenerXA = est.sigmaXA%^%(-0.5) 
-xDataA = whitenerXA %*% dXcentered  # ZCA Whitening, matrix with n x px.
-invLx = est.sigmaXA%^%(0.5) # Don't know what it is.
+whitenerXA = est.sigmaXA%^%(-0.5)   # ZCA Whitening,
+xDataA = whitenerXA %*% dXcentered   # Lx %*% dX.matrix with n x px. 
+invLx = est.sigmaXA%^%(0.5) # Inverse matrix of Lx, which is the whitenerXA aforemetioned. 
 
 # For Y
 # Scale rowwise
