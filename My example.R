@@ -75,7 +75,11 @@ save(out_jointICA, file = "jointICA_example.Rda")
 # JB on X
 estX_JB = mlcaFP(xData = t(data$dX), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
 Uxfull <- estX_JB$Ws  # Ax = Ux %*% Lx, where Lx is the whitened matrix from covariance matrix of dX.
-Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX))
+Mx_JB = est.M.ols(sData = estX_JB$S, xData = t(data$dX)) # NOTE: for centered X, equivalent to xData %*% sData/(px-1)
+
+
+dXcentered%*%estX_JB$S/(dim(dXcentered)[2]-1) #the same with Mx_JB
+
 
 # JB on Y
 estY_JB = mlcaFP(xData = t(data$dY), n.comp = 12, whiten = 'sqrtprec', restarts.pbyd = 20, distribution='JB')
