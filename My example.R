@@ -121,7 +121,7 @@ save(output_sepJB, file = "sepJB_example.Rda")
 #####################################################
 # Rank estimation via permutation
 alpha = 0.05
-nperms = 10
+nperms = 100
 matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))  # Match subject score
 permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)  #permutation test
 joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1 # find the number of pvalues < 0.05
