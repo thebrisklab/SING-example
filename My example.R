@@ -164,6 +164,7 @@ invLy = est.sigmaYA%^%(0.5)
 
 # Calculate JB values
 JBall = calculateJB(matchMxMy$Ux[1:2, ], X = xDataA) + calculateJB(matchMxMy$Uy[1:2, ], X = yDataA)
+# the columns of Ux & Uy are up to the joint_rank
 
 
 # SING on shared + individual
