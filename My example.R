@@ -135,7 +135,7 @@ joint_rank # selects rank 2
 
 ### use permTestJointRank and greedymatch to make instead of angleMatchICA
 
-
+permJoint <- permTestJointRank(matchMxMy$Mx,matchMxMy$My) # comes from line 92
 
 
 
