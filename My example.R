@@ -124,7 +124,6 @@ alpha = 0.05
 nperms = 100
 matchedResults = angleMatchICA(t(Mx_JB), t(My_JB))  # Match subject score
 permuteJoint = permmatRank_joint(matchedResults, nperms = nperms)  #permutation test
-
 joint_rank = min(which(permuteJoint$pvalues > alpha)) - 1 # find the number of pvalues < 0.05
 ### the same with the code max(which(permuteJoint$pvalues <= 0.05))
 pval_joint = permuteJoint$pvalues
@@ -134,9 +133,10 @@ joint_rank # selects rank 2
 
 
 ### use permTestJointRank and greedymatch to make instead of angleMatchICA
-
-permJoint <- permTestJointRank(matchMxMy$Mx,matchMxMy$My) # comes from line 92
-
+matchMxMy = greedymatch(t(Mx_JB), t(My_JB), Ux = t(Uxfull), Uy = t(Uyfull))
+permJoint <- permTestJointRank(matchMxMy$Mx,matchMxMy$My) # alpha = 0.01, nperm=1000
+pval_joint = permJoint$pvalues
+joint_rank = permJoint$rj
 
 
 
