@@ -137,7 +137,7 @@ matchMxMy = greedymatch(t(Mx_JB), t(My_JB), Ux = t(Uxfull), Uy = t(Uyfull))
 permJoint <- permTestJointRank(matchMxMy$Mx,matchMxMy$My) # alpha = 0.01, nperm=1000
 pval_joint = permJoint$pvalues
 joint_rank = permJoint$rj
-
+joint_rank
 
 
 # Whiten dX and dY
