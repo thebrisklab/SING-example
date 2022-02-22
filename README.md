@@ -5,15 +5,15 @@ Liangkang Wang
 
 ## Introduction
 
-SING method is used in extracting joint non-gaussian components from
-different datasets when wiping off gaussian noise. This is a tutorial
-example supporting the paper **Simultaneous Non-Gaussian Component
-Analysis (SING) for Data Integration in Neuroimaging Benjamin Risk,
-Irina Gaynanova** <https://arxiv.org/abs/2005.00597v1>
+SING is used to extract joint and individual non-gaussian components
+from different datasets. This is a tutorial example supporting the paper
+**Simultaneous Non-Gaussian Component Analysis (SING) for Data
+Integration in Neuroimaging Benjamin Risk, Irina Gaynanova**
+<https://arxiv.org/abs/2005.00597v1>
 
 The function codes are saved in `jngcaFunctions.R` and
 `generate_data.R`. The data processing is saved in `My example.R` while
-the figures of outcome are saved in My example2.R\`.
+the figures of outcome are saved in `My example2.R`.
 
 ## Example Code
 
@@ -40,9 +40,9 @@ image(vec2net(data$siY[1,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main=
 image(vec2net(data$siY[2,]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="Y independent component2")
 ```
 
-<img src="figs/Original data figure.png" width="964" />
+![](figs/Original%20data%20figure.png)<!-- -->
 
-### Data process
+### Pipeline of SING method
 
 The data process code can be found in the two code file mentioned
 before.
@@ -69,7 +69,7 @@ image(matrix(SxmCCA[,1], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt 
 image(matrix(SxmCCA[,2], lgrid, lgrid), col = heat.colors(12), xaxt = "n", yaxt = "n",main="mCCA")
 ```
 
-<img src="figs/Joint X component.png" width="964" />
+![](figs/Joint%20X%20component.png)<!-- -->
 
 ### Joint Y components
 
@@ -85,7 +85,7 @@ image(vec2net(SymCCA[,1]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="m
 image(vec2net(SymCCA[,2]), col = heat.colors(12), xaxt = "n", yaxt = "n",main="mCCA") #mCCA+jICA
 ```
 
-<img src="figs/Joint Y component.png" width="964" />
+![](figs/Joint%20Y%20component.png)<!-- -->
 
 ### Subject Scores
 
@@ -140,4 +140,4 @@ I2 <- ggplot(data = ICAMj)+
 ggarrange(t1,S1,I1,t2,S2,I2,ncol = 3,nrow = 2)
 ```
 
-<img src="figs/Subject Score.png" width="964" />
+![](figs/Subject%20Score.png)<!-- -->

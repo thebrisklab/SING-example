@@ -19,7 +19,7 @@ The data processing is saved in `My example.R` while the figures of outcome are 
 ## Example Code
 ### Generate data
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 source("jngcaFunctions.R")
 source('generate_data.R')
 set.seed(0573452)
@@ -50,7 +50,7 @@ knitr::include_graphics("figs/Original data figure.png")
 
 
 
-### Data process
+### Pipeline of SING method
 The data process code can be found in the two code file mentioned before.
 
 ### Outcome
